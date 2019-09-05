@@ -1,6 +1,7 @@
 package com.springboot.district.controller;
 
 import com.springboot.district.model.DistrictItem;
+import com.springboot.district.model.SortedCityResponse;
 import com.springboot.district.service.GlobalDistrictService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +37,14 @@ public class GlobalDistrictController {
     public List<DistrictItem> getCitiesByProvinceId(@RequestParam
                                                     @ApiParam("省份 id") String provinceId) {
         return globalDistrictService.getCitiesByProvinceId(provinceId);
+    }
+
+    @ApiOperation(value = "获取按字母排序(A-Z)直辖市、特别行政区、地级市列表")
+    @GetMapping("/sorted-cities")
+    public List<SortedCityResponse> getSortedCities(
+            @RequestParam(required = false)
+            @ApiParam("关键词") String keyword) {
+        return globalDistrictService.getSortedCities(keyword);
     }
 
 }
