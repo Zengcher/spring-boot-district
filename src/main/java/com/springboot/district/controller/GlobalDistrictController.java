@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by Cher on 2019-08-27
  */
-@Api(tags = "01. 全国地区信息", description = "获取全国省市区列表")
+@Api(tags = "01. 全国地区信息", description = "获取全国省市区列表/根据省份获取城市/排序城市列表")
 @RestController
 @RequestMapping("/api/global/district")
 public class GlobalDistrictController {

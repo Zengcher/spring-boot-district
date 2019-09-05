@@ -3,11 +3,8 @@ package com.springboot.district;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
-import net.javacrumbs.jsonunit.fluent.JsonFluentAssert;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -19,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 public class BaseTest {
 
     @Autowired
-    private ObjectMapper objectMapper;
+    protected ObjectMapper objectMapper;
 
     protected MockMvc mMockMvc;
 
