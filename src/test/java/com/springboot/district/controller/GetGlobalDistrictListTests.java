@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 public class GetGlobalDistrictListTests extends BaseTest {
 
     @Test
-    public void getDistrictListTests() throws Exception {
+    public void getDistrictListSuccessTest() throws Exception {
         String responseJson = mMockMvc.perform(
                 MockMvcRequestBuilders.get("/api/global/district")
                         .contentType(MediaType.APPLICATION_JSON_UTF8))

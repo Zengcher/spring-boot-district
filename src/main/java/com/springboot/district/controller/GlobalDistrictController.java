@@ -4,9 +4,11 @@ import com.springboot.district.model.DistrictItem;
 import com.springboot.district.service.GlobalDistrictService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +29,13 @@ public class GlobalDistrictController {
     @GetMapping("")
     public List<DistrictItem> getDistrict() {
         return globalDistrictService.getDistrictTree();
+    }
+
+    @ApiOperation(value = "根据省份 id 获取城市列表")
+    @GetMapping("/city")
+    public List<DistrictItem> getCitiesByProvinceId(@RequestParam
+                                                    @ApiParam("省份 id") String provinceId) {
+        return globalDistrictService.getCitiesByProvinceId(provinceId);
     }
 
 }

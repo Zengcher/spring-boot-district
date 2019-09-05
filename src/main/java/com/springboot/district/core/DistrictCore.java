@@ -132,6 +132,12 @@ public class DistrictCore {
         return tree;
     }
 
+    /**
+     * 判断是否是直辖市
+     *
+     * @param id
+     * @return
+     */
     public boolean isDirectCity(String id) {
         return directCities.contains(id);
     }
