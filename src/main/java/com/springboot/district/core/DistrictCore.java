@@ -6,6 +6,7 @@ import com.springboot.district.model.DistrictItem;
 import com.springboot.district.model.DistrictListResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -56,6 +57,7 @@ public class DistrictCore {
      * @return
      * @throws IOException
      */
+    @Cacheable(value = "district_list")
     public List<List<DistrictItem>> getDistrictList() {
         DistrictListResult result;
         try {
@@ -77,6 +79,7 @@ public class DistrictCore {
      *
      * @return
      */
+    @Cacheable(value = "district_tree")
     public List<DistrictItem> getDistrictTreeList() {
         List<List<DistrictItem>> district = getDistrictList();
         List<DistrictItem> tree = new ArrayList<>();
